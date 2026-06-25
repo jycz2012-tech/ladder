@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>사다리타기</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <h1>사다리타기</h1>
+      <div class="status-pill" id="statusPill">입력 대기</div>
+    </header>
+
+    <section class="setup" aria-label="입력 영역">
+      <div class="panel">
+        <div class="panel-head">
+          <h2 class="panel-title">참여자</h2>
+          <span class="count" id="participantCount">0명</span>
+        </div>
+        <div class="entry-row">
+          <input id="participantInput" type="text" placeholder="이름 입력" autocomplete="off" />
+          <button class="btn secondary" id="addParticipantBtn">추가</button>
+          <button class="btn done-btn" id="finishParticipantsBtn">완료</button>
+        </div>
+        <div class="items" id="participantItems"></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <h2 class="panel-title">Goal</h2>
+          <span class="count" id="goalCount">0개</span>
+        </div>
+        <div class="entry-row">
+          <input id="goalInput" type="text" placeholder="예: 5,000원" autocomplete="off" />
+          <button class="btn secondary" id="addGoalBtn">추가</button>
+          <button class="btn done-btn" id="finishGoalsBtn">완료</button>
+        </div>
+        <div class="items" id="goalItems"></div>
+      </div>
+    </section>
+
+    <section class="toolbar" aria-label="실행 영역">
+      <label class="mode">
+        <input type="checkbox" id="singleWinnerMode" />
+        <span>한 명만 찾기</span>
+      </label>
+      <button class="btn" id="startBtn" disabled>사다리 시작</button>
+      <button class="btn secondary" id="resetBtn">처음부터</button>
+      <div class="notice" id="notice" aria-live="polite"></div>
+    </section>
+
+    <section class="panel board" aria-label="사다리 보드">
+      <div class="board-scroll">
+        <div class="names" id="namesRow"></div>
+        <div class="ladder-wrap">
+          <svg id="ladderSvg" viewBox="0 0 900 420" preserveAspectRatio="none" role="img" aria-label="사다리"></svg>
+        </div>
+        <div class="goals" id="goalsRow"></div>
+      </div>
+    </section>
+
+    <section class="results" id="results" aria-label="결과"></section>
+  </main>
+</body>
+</html>
